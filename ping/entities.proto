@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ping;
+option go_package = "github.com/dhiguero/grpc-ping-go;grpc_ping_go";
+
+// The ping request.
+message PingRequest{
+  // Message to send with the ping request.
+  string message = 1;
+}
+
+// The pong response.
+message PongResponse {
+  // Message with the pong answer.
+  string message = 1;
+}
+
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package agenda;
+option go_package = "github.com/dhiguero/grpc-agenda-go;grpc_agenda_go";
+
+import "validate/validate.proto";
+
+// Person message defining an entry of the agenda.
+message Person{
+	// Id with the person identifier.
+	string id = 1;
+	// Name with the full name.
+	string name = 2;
+	// Email to receive notifications.
+	string email = 3;
+}
+
+// PersonList message with a collection of persons.
+message PersonList {
+	// Persons array.
+	repeated Person persons = 1;
+}
+
+// AddPersonRequest message to add a new entry to the agenda.
+message AddPersonRequest{
+	// Name of the person.
+	string name = 1;
+	// Email to receive notifications.
+	string email = 2 [(validate.rules).string.email = true];
+}
+
+// ListPersonRequest message.
+message ListPersonRequest{
+}
+

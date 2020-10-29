@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package agenda;
+option go_package = "github.com/dhiguero/grpc-agenda-go;grpc_agenda_go";
+
+import "agenda/entities.proto";
+
+// Agenda service with basic functions.
+service Agenda {
+	// Add a new person.
+	rpc Add(AddPersonRequest) returns (Person) {}
+	// List all persons.
+	rpc List(ListPersonRequest) returns (PersonList) {}
+}
+
